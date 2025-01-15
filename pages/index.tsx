@@ -1,11 +1,10 @@
 import Layout from '../components/Layouts/Layout';
+import StocksPage from '@components/Stocks';
 
 export default function HomePage() {
   return (
     <Layout>
-      <h1 className="text-3xl font-bold">Welcome to PGAGI Dashboard</h1>
-      <p>This is your main landing page.</p>
-
+      <StocksPage/>
     </Layout>
   );
 }
