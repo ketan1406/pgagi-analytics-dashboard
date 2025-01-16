@@ -1,6 +1,4 @@
 "use client";
-import "./../styles/font.css";
-import "./../styles/globals.css";
 import React, { useEffect, useState } from "react";
 import Loader from "./../components/Shared/Loader";
 
