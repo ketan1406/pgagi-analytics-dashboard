@@ -86,17 +86,14 @@ export default function WeatherDashboard() {
         {/* Reuse the existing breadcrumbs component for consistency */}
         <Breadcrumb pageName="Weather" />
 
-        <div className="mb-6">
-          <h2 className="text-heading-5 font-bold text-dark dark:text-white">
-            Check the Weather
-          </h2>
+        <div className="mb-2">
           <p className="text-body-sm text-dark-5 dark:text-dark-6">
             Enter a city name to see current conditions.
           </p>
         </div>
 
         {/* City Input + Button */}
-        <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-6">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4">
           <input
             type="text"
             className="w-full sm:w-60 rounded border border-stroke bg-gray-2 py-2 px-3 text-dark focus:border-primary focus:outline-none dark:border-dark-3 dark:bg-dark-2 dark:text-white"
