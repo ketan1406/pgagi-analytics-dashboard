@@ -43,6 +43,8 @@ const menuGroups = [
         route: "#",
         children: [
           { label: "Stocks", route: "/" },
+          { label: "Weather", route: "/weather" },
+          { label: "News", route: "/news" },
         ],
       },
       {
