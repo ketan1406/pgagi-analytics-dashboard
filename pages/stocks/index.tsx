@@ -1,12 +1,11 @@
 // pages/stocks/index.tsx
 
 import { useState } from "react";
+import Breadcrumb from "../../components/Breadcrumbs";
 import ClickOutside from "../../components/Shared/ClickOutside";
 import { useGetStockQuoteQuery } from "../../store/financeApi";
 import StocksSlider from "../../components/Stocks/StocksSlider"; 
-// (We'll create that in a moment)
 import TotalInvestmentChart from "../../components/Stocks/TotalInvestmentChart"; 
-// (Optional new component or reuse from existing)
 import MyStocksList from "../../components/Stocks/MyStocksList";
 
 export default function StocksPage() {
@@ -37,6 +36,8 @@ export default function StocksPage() {
   };
 
   return (
+    <div className="mx-auto max-w-7xl">
+      <Breadcrumb pageName="Stocks" />
       <div className="mx-auto max-w-screen-2xl py-4 px-4 md:px-6 2xl:px-10">
         {/* Top slider with existing stock cards + plus button */}
         <StocksSlider 
@@ -86,5 +87,6 @@ export default function StocksPage() {
           </ClickOutside>
         )}
       </div>
+    </div>
   );
 }
