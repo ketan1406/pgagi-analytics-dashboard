@@ -139,7 +139,7 @@ export default function WeatherDashboard() {
             {/* Right: Some fun charts */}
             <div className="grid grid-cols-1 gap-6">
               {/* 1) Radial Chart: Humidity */}
-              <div className="rounded-lg border border-stroke p-4 dark:border-dark-3 dark:bg-gray-dark shadow-card-2">
+              <div className="rounded-lg border border-stroke p-4 dark:border-dark-3 dark:bg-white-dark shadow-card-2">
                 <h4 className="text-md font-medium mb-2 text-dark dark:text-white">
                   Humidity
                 </h4>
@@ -152,7 +152,7 @@ export default function WeatherDashboard() {
               </div>
 
               {/* 2) Bar Chart: Actual vs. Feels Like */}
-              <div className="rounded-lg border border-stroke p-4 dark:border-dark-3 dark:bg-gray-dark shadow-card-2">
+              <div className="rounded-lg border border-stroke p-4 dark:border-dark-3 dark:bg-white-dark shadow-card-2">
                 <h4 className="text-md font-medium mb-2 text-dark dark:text-white">
                   Temperature Comparison
                 </h4>
