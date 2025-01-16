@@ -153,19 +153,18 @@ const settingsItem = {
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
   const pathname = usePathname();
-
   const [pageName, setPageName] = useLocalStorage("selectedMenu", "dashboard");
 
   return (
     <ClickOutside onClick={() => setSidebarOpen(false)}>
       <aside
-        className={`absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden border-r border-stroke bg-white dark:border-stroke-dark dark:bg-gray-dark lg:static lg:translate-x-0 ${
+        className={`absolute left-0 top-0 z-9999 h-screen w-72.5 flex flex-col border-r border-stroke bg-white dark:border-stroke-dark dark:bg-gray-dark lg:static lg:translate-x-0 ${
           sidebarOpen
             ? "translate-x-0 duration-300 ease-linear"
             : "-translate-x-full"
         }`}
       >
-        {/* <!-- SIDEBAR HEADER --> */}
+        {/* SIDEBAR HEADER */}
         <div className="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5 xl:py-10">
           <Link href="/">
             <Image
@@ -207,18 +206,16 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
             </svg>
           </button>
         </div>
-        {/* <!-- SIDEBAR HEADER --> */}
 
-        <div className="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
-          {/* <!-- Sidebar Menu --> */}
-          <nav className="mt-1 px-4 lg:px-6">
+        {/* SIDEBAR MENU */}
+        <div className="flex-1 no-scrollbar overflow-y-auto">
+          <nav className="mt-6 px-4 lg:px-6"> {/* Ensure menu starts right below the logo */}
             {menuGroups.map((group, groupIndex) => (
               <div key={groupIndex}>
                 <h3 className="mb-5 text-sm font-medium text-dark-4 dark:text-dark-6">
                   {group.name}
                 </h3>
-
-                <ul className="mb-6 flex flex-col gap-2">
+                <ul className="mb-6 flex flex-col gap-2 list-none">
                   {group.menuItems.map((menuItem, menuIndex) => (
                     <SidebarItem
                       key={menuIndex}
@@ -230,16 +227,19 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }: SidebarProps) => {
                 </ul>
               </div>
             ))}
-            {/* Settings item placed at the bottom */}
-            <div className="mt-auto">
-              <SidebarItem
-                item={settingsItem}
-                pageName={pageName}
-                setPageName={setPageName}
-              />
-            </div>
           </nav>
-          {/* <!-- Sidebar Menu --> */}
+        </div>
+
+        {/* SETTINGS ITEM AT THE BOTTOM */}
+        <div className="border-t border-gray-200 dark:border-gray-700 py-2 px-4 lg:px-6"> {/* Adjusted padding */}
+        <ul className="list-none m-0 p-0">
+            <SidebarItem
+              item={settingsItem}
+              pageName={pageName}
+              setPageName={setPageName}
+              list-none
+            />
+        </ul>
         </div>
       </aside>
     </ClickOutside>
