@@ -7,7 +7,7 @@ const SidebarDropdown = ({ item }: any) => {
 
   return (
     <>
-      <ul className="my-2 flex flex-col gap-1.5 pl-9">
+      <ul className="my-2 flex flex-col gap-1.5 pl-9 list-none">
         {item.map((item: any, index: number) => (
           <li key={index}>
             <Link

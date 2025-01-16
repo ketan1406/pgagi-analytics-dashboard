@@ -11,7 +11,7 @@ const ReactApexChart = dynamic(() => import("react-apexcharts"), {
 
 export default function WeatherDashboard() {
   // State to hold the city name typed by user
-  const [city, setCity] = useState("London");
+  const [city, setCity] = useState("Bengaluru");
   // Trigger the query
   const { data, error, isLoading, refetch } = useGetWeatherByCityQuery(city);
 
