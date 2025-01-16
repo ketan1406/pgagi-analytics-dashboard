@@ -1,38 +1,50 @@
 // components/Stocks/StocksSlider.tsx
-// This is a simple horizontal list for demonstration.
-// You can replace with your existing Swiper or "carouselOne" code.
 
 import Image from "next/image";
 
 export default function StocksSlider({ queries, onAddClicked }) {
   return (
-    <div className="flex items-center gap-4 overflow-x-auto p-4 bg-dark-2 rounded-[10px]">
+    <div className="
+      flex items-center gap-4 overflow-x-auto p-4 rounded-[10px] 
+      bg-gray-2 dark:bg-dark-2
+    ">
       {queries.map(({ symbol, quote }) => {
         const { data, isLoading, error } = quote;
 
-        // parse data from AlphaVantage etc.
+        // parse data
         let price = "—";
-        let percentChange = "—";
         if (data && data["Global Quote"]) {
           price = data["Global Quote"]["05. price"];
-          // etc.
         }
 
         return (
-          <div 
-            key={symbol} 
-            className="min-w-[180px] p-4 bg-dark-3 rounded-lg flex flex-col items-center"
+          <div
+            key={symbol}
+            className="
+              min-w-[180px] p-4 rounded-lg flex flex-col items-center 
+              bg-white dark:bg-dark-3
+            "
           >
             <div className="flex items-center justify-center mb-2">
-              <Image src="/images/logo/some-stock-icon.png" width={24} height={24} alt="stock"/>
-              <span className="ml-2 font-medium text-white">{symbol}</span>
+              <Image
+                src="/images/logo/some-stock-icon.png"
+                width={24}
+                height={24}
+                alt="stock"
+              />
+              <span className="ml-2 text-dark dark:text-white font-medium">
+                {symbol}
+              </span>
             </div>
+
             {isLoading ? (
-              <div className="text-gray-400 text-sm">Loading...</div>
+              <div className="text-dark-5 dark:text-dark-6 text-sm">
+                Loading...
+              </div>
             ) : error ? (
               <div className="text-red text-sm">Error</div>
             ) : (
-              <div className="text-white">
+              <div className="text-dark dark:text-white">
                 <div>Price: {price}</div>
                 <div className="text-green-400">+0.95%</div>
               </div>
@@ -44,7 +56,11 @@ export default function StocksSlider({ queries, onAddClicked }) {
       {/* The + item */}
       <button
         onClick={onAddClicked}
-        className="min-w-[60px] h-[60px] rounded-full bg-dark-3 flex items-center justify-center text-2xl text-white"
+        className="
+          min-w-[60px] h-[60px] rounded-full 
+          bg-white dark:bg-dark-3 text-dark dark:text-white
+          flex items-center justify-center text-2xl
+        "
       >
         +
       </button>
