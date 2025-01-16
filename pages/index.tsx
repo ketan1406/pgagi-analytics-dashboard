@@ -1,5 +1,5 @@
 import Layout from '../components/Layouts/Layout';
-import StocksPage from '@components/Stocks';
+import StocksPage from './stocks';
 
 export default function HomePage() {
   return (
