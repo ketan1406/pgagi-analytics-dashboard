@@ -1,4 +1,3 @@
-// store/weatherApi.ts
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const weatherApi = createApi({
@@ -9,7 +8,12 @@ export const weatherApi = createApi({
   endpoints: (builder) => ({
     getWeatherByCity: builder.query<any, string>({
       query: (city) => ({
-        url: `/weather?q=${city}&appid=${process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY}&units=metric`,
+        url: `/weather`,
+        params: {
+          q: city,
+          appid: process.env.NEXT_PUBLIC_OPENWEATHER_API_KEY,
+          units: 'metric',
+        },
       }),
     }),
   }),
