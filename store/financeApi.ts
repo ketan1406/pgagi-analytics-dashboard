@@ -4,20 +4,23 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const financeApi = createApi({
   reducerPath: 'financeApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://www.alphavantage.co/query',
+    baseUrl: 'https://eodhistoricaldata.com/api',
   }),
   endpoints: (builder) => ({
     getStockQuote: builder.query<any, string>({
-      // symbol might be "AAPL", "TSLA", etc.
+      /**
+       * Fetch EOD data for a specific stock symbol.
+       * Example Endpoint: /eod/{symbol}?api_token=YOUR_API_KEY&fmt=json
+       */
       query: (symbol) => ({
-        url: '',
+        url: `/eod/${symbol}`,
         params: {
-          function: 'GLOBAL_QUOTE',
-          symbol,
-          apikey: process.env.NEXT_PUBLIC_ALPHA_VANTAGE_KEY,
+          api_token: process.env.NEXT_PUBLIC_EODHD_API_KEY,
+          fmt: 'json',
         },
       }),
     }),
+    // Add more endpoints as needed, e.g., historical data, etc.
   }),
 });
 
